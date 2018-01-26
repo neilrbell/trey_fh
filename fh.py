@@ -11,10 +11,10 @@ def textGen(numWords):
 		numTexts = range(0, numWords)
 		for i in numTexts:
 			word_index = random.randint(0, num_lines-1) # https://docs.python.org/2/library/random.html#random.randint
-			c = all_lines[word_index]
+			chosen_word = all_lines[word_index]
 	
 	for i in xrange(3):
-	   open('file_'+str(i)+'.txt', 'w').write(c)
+	   open('file_'+str(i)+'.txt', 'w').write(chosen_word)
 			#print a[b] #this works, I just need to output this value each time...
 
 def multTextGen(numRuns, numWords):
