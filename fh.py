@@ -7,10 +7,10 @@ WORDLIST = "./words.txt" # 'c:\Python27\words.txt'
 def textGen(numWords):
 	with open(WORDLIST, 'r') as in_file:
 		all_lines = [line.strip() for line in in_file.readlines()]
-		space = range(0,len(all_lines))
+		num_lines = len(all_lines)
 		numTexts = range(0, numWords)
 		for i in numTexts:
-			b = random.choice(space)
+			b = random.randint(0, num_lines-1) # https://docs.python.org/2/library/random.html#random.randint
 			c = all_lines[b]
 	for i in xrange(3):
 	   open('file_'+str(i)+'.txt', 'w').write(c)
