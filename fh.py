@@ -6,12 +6,12 @@ WORDLIST = "./words.txt" # 'c:\Python27\words.txt'
 
 def textGen(numWords):
 	with open(WORDLIST, 'r') as in_file:
-		a = in_file.readlines()
-		space = range(0,len(a))
+		all_lines = in_file.readlines()
+		space = range(0,len(all_lines))
 		numTexts = range(0, numWords)
 		for i in numTexts:
 			b = random.choice(space)
-			c = a[b]
+			c = all_lines[b]
 	for i in xrange(3):
 	   open('file_'+str(i)+'.txt', 'w').write(c)
 			#print a[b] #this works, I just need to output this value each time...
