@@ -7,24 +7,23 @@ WORDLIST = "./words.txt" # 'c:\Python27\words.txt'
 def textGen(numWords):
 	with open(WORDLIST, 'r') as in_file:
 		all_lines = [line.strip() for line in in_file.readlines()]
-		num_lines = len(all_lines) 
-		for i in xrange(0, numWords):
-			word_index = random.randint(0, num_lines-1) # https://docs.python.org/2/library/random.html#random.randint
-			chosen_word = all_lines[word_index]
-			# right now chosen_word is scoped to this loop. The output cycle below isn't inside this loop, 
-			# so it'll just end up taking and using whatever the *final* value of chosen_word is.
+		num_lines = len(all_lines)
+		num_files = 10
+		for file_number in xrange(0, num_files):
+			with open('file_'+str(file_number)+'.txt', 'w') as out_handle:
+				for word_number in xrange(0, numWords):
+					word_index = random.randint(0, num_lines-1) # https://docs.python.org/2/library/random.html#random.randint
+					chosen_word = all_lines[word_index]
+					# right now chosen_word is scoped to this loop. The output cycle below isn't inside this loop, 
+					# so it'll just end up taking and using whatever the *final* value of chosen_word is.
 
-			# In reality (in other languages) line 20 below should throw a horrible UnknownVariable error 
-			# since chosen_word isn't defined outside the scope of this loop right here, so a language like C would
-			# cause that variable to basically be garbage collected, and thus isn't available any longer. Python is nice
-			# and lets chosen_word sorta be at the scope of the function (it's definitely not available down in multTextGen)
-			# but that's it being nice.
-	
-			# for i in xrange(3):
-			open('file_'+str(i)+'.txt', 'w').write(chosen_word + "\n")
-			# now the i comes from the numWords loop above, using whatever the chosen_word is RIGHT this iteration.
-			
-			#print a[b] #this works, I just need to output this value each time...
+					# In reality (in other languages) line 20 below should throw a horrible UnknownVariable error 
+					# since chosen_word isn't defined outside the scope of this loop right here, so a language like C would
+					# cause that variable to basically be garbage collected, and thus isn't available any longer. Python is nice
+					# and lets chosen_word sorta be at the scope of the function (it's definitely not available down in multTextGen)
+					# but that's it being nice.
+				
+					out_handle.write(chosen_word + "\n")
 
 def multTextGen(numRuns, numWords):
 	for _ in range(int(numRuns)):
