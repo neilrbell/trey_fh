@@ -1,6 +1,6 @@
 import sys, random
 
-WORDLIST = 'c:\Python27\words.txt'
+WORDLIST = "./words.txt" # 'c:\Python27\words.txt'
 
 #numWords  = int(raw_input("How many words to generate? "))
 #numRuns = raw_input("How many times to run? ")
