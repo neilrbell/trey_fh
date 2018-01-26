@@ -16,7 +16,7 @@ def textGen():
 	   open('file_'+str(i)+'.txt', 'w').write(c)
 			#print a[b] #this works, I just need to output this value each time...
 
-def multTextGen():
+def multTextGen(numRuns):
 	for _ in range(int(numRuns)):
 		textGen()
 
@@ -38,4 +38,4 @@ if "__main__" == __name__:
 	
 	
 	#textGen()
-	multTextGen()
+	multTextGen(numRuns) # because numRuns is no longer global, we'll need to pass it in
