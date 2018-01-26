@@ -20,8 +20,10 @@ def textGen(numWords):
 			# and lets chosen_word sorta be at the scope of the function (it's definitely not available down in multTextGen)
 			# but that's it being nice.
 	
-	for i in xrange(3):
-	   open('file_'+str(i)+'.txt', 'w').write(chosen_word)
+			# for i in xrange(3):
+			open('file_'+str(i)+'.txt', 'w').write(chosen_word + "\n")
+			# now the i comes from the numWords loop above, using whatever the chosen_word is RIGHT this iteration.
+			
 			#print a[b] #this works, I just need to output this value each time...
 
 def multTextGen(numRuns, numWords):
