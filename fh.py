@@ -4,7 +4,7 @@ WORDLIST = "./words.txt" # 'c:\Python27\words.txt'
 
 # This is where we'll put constants and "definitions" of things, not code that is explicitly going to execute.
 
-def textGen():
+def textGen(numWords):
 	with open(WORDLIST, 'r') as in_file:
 		a = in_file.readlines()
 		space = range(0,len(a))
@@ -16,9 +16,9 @@ def textGen():
 	   open('file_'+str(i)+'.txt', 'w').write(c)
 			#print a[b] #this works, I just need to output this value each time...
 
-def multTextGen(numRuns):
+def multTextGen(numRuns, numWords):
 	for _ in range(int(numRuns)):
-		textGen()
+		textGen(numWords)
 
 		
 if "__main__" == __name__:
@@ -38,4 +38,4 @@ if "__main__" == __name__:
 	
 	
 	#textGen()
-	multTextGen(numRuns) # because numRuns is no longer global, we'll need to pass it in
+	multTextGen(numRuns, numWords) # because numRuns is no longer global, we'll need to pass it in
