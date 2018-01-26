@@ -12,6 +12,14 @@ def textGen(numWords):
 		for i in numTexts:
 			word_index = random.randint(0, num_lines-1) # https://docs.python.org/2/library/random.html#random.randint
 			chosen_word = all_lines[word_index]
+			# right now chosen_word is scoped to this loop. The output cycle below isn't inside this loop, 
+			# so it'll just end up taking and using whatever the *final* value of chosen_word is.
+
+			# In reality (in other languages) line 20 below should throw a horrible UnknownVariable error 
+			# since chosen_word isn't defined outside the scope of this loop right here, so a language like C would
+			# cause that variable to basically be garbage collected, and thus isn't available any longer. Python is nice
+			# and lets chosen_word sorta be at the scope of the function (it's definitely not available down in multTextGen)
+			# but that's it being nice.
 	
 	for i in xrange(3):
 	   open('file_'+str(i)+'.txt', 'w').write(chosen_word)
