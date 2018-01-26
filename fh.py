@@ -6,7 +6,7 @@ WORDLIST = "./words.txt" # 'c:\Python27\words.txt'
 
 def textGen(numWords):
 	with open(WORDLIST, 'r') as in_file:
-		all_lines = in_file.readlines()
+		all_lines = [line.strip() for line in in_file.readlines()]
 		space = range(0,len(all_lines))
 		numTexts = range(0, numWords)
 		for i in numTexts:
