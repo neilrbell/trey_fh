@@ -7,9 +7,8 @@ WORDLIST = "./words.txt" # 'c:\Python27\words.txt'
 def textGen(numWords):
 	with open(WORDLIST, 'r') as in_file:
 		all_lines = [line.strip() for line in in_file.readlines()]
-		num_lines = len(all_lines)
-		numTexts = range(0, numWords)
-		for i in numTexts:
+		num_lines = len(all_lines) 
+		for i in xrange(0, numWords):
 			word_index = random.randint(0, num_lines-1) # https://docs.python.org/2/library/random.html#random.randint
 			chosen_word = all_lines[word_index]
 			# right now chosen_word is scoped to this loop. The output cycle below isn't inside this loop, 
