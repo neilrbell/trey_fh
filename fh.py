@@ -10,8 +10,9 @@ def textGen(numWords):
 		num_lines = len(all_lines)
 		numTexts = range(0, numWords)
 		for i in numTexts:
-			b = random.randint(0, num_lines-1) # https://docs.python.org/2/library/random.html#random.randint
-			c = all_lines[b]
+			word_index = random.randint(0, num_lines-1) # https://docs.python.org/2/library/random.html#random.randint
+			c = all_lines[word_index]
+	
 	for i in xrange(3):
 	   open('file_'+str(i)+'.txt', 'w').write(c)
 			#print a[b] #this works, I just need to output this value each time...
